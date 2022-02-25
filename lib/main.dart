@@ -71,6 +71,9 @@ class _MyHomePageState extends State<MyHomePage> {
 //==============================================================================
       body: Column(
         children: [
+//==============================================================================
+// 1. CONTAINER
+//==============================================================================
           Container(
               alignment: Alignment.centerLeft,
               color: Colors.black54,
@@ -86,6 +89,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ],
               )),
+//==============================================================================
+// 2. CONTAINER
+//==============================================================================
           Container(
               alignment: Alignment.centerLeft,
               color: Colors.white,
@@ -106,11 +112,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   )
                 ],
               )),
+//==============================================================================
+// CONTAINER: LISTVIEW
+//==============================================================================
           Expanded(
             child: Container(
               color: Colors.grey[200],
               child: ListView(
                 children: [
+//==============================================================================
+// CARD#1
+//==============================================================================
                   WidgetCard(
                     icon: Icon(
                       Icons.account_circle,
@@ -122,6 +134,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     subtitle: '35',
                     key: null,
                   ),
+//==============================================================================
+// CARD#2
+//==============================================================================
                   WidgetCard(
                     icon: Icon(
                       Icons.input,
@@ -133,6 +148,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     subtitle: '01 Apr 2014 - 31 Mar 2022',
                     key: null,
                   ),
+//==============================================================================
+// CARD#3
+//==============================================================================
                   WidgetCard(
                     icon: Icon(
                       Icons.money,
@@ -142,6 +160,48 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.green,
                     title: 'Last Payment',
                     subtitle: '14-04-2021',
+                    key: null,
+                  ),
+//==============================================================================
+// CARD#4
+//==============================================================================
+                  WidgetCard(
+                    icon: Icon(
+                      Icons.wallet_giftcard,
+                      size: 35,
+                      color: Colors.white,
+                    ),
+                    color: Colors.black54,
+                    title: 'PO-Invoice Status',
+                    subtitle: 'Vendor Siam Shimotogo',
+                    key: null,
+                  ),
+//==============================================================================
+// CARD#5
+//==============================================================================
+                  WidgetCard(
+                    icon: Icon(
+                      Icons.wallet_membership_outlined,
+                      size: 35,
+                      color: Colors.white,
+                    ),
+                    color: Colors.orange,
+                    title: 'PO-REC Status',
+                    subtitle: 'Last updated 3 Feb 2022',
+                    key: null,
+                  ),
+//==============================================================================
+// CARD#6
+//==============================================================================
+                  WidgetCard(
+                    icon: Icon(
+                      Icons.wallet_travel,
+                      size: 35,
+                      color: Colors.white,
+                    ),
+                    color: Colors.pink,
+                    title: 'PO-PR Status',
+                    subtitle: 'PO050001, PR040002',
                     key: null,
                   ),
                 ],
