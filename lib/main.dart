@@ -4,22 +4,19 @@ void main() {
   runApp(MyApp());
 }
 
+// https://gist.github.com/felagund18/4ea58e1b4d6646797e866d1c583ca1b0 (CALL API)
+
+//==============================================================================
+// MAIN CLASS
+//==============================================================================
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'WISS Flutter 2022',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Wiss Flutter 2022'),
@@ -27,90 +24,171 @@ class MyApp extends StatelessWidget {
   }
 }
 
+//==============================================================================
+// STATE CLASS
+//==============================================================================
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key, required this.title}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
   final String title;
-
+//==============================================================================
+// OVERRIDE STATE CLASS
+//==============================================================================
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+//==============================================================================
+// MY HOME PAGE STATE
+//==============================================================================
 class _MyHomePageState extends State<MyHomePage> {
-  // int _counter = 0;
+  @override
+  Widget build(BuildContext context) {
+//==============================================================================
+// SCAFFOLD
+//==============================================================================
+    return Scaffold(
+      // backgroundColor: Colors.lightBlue[40],
+      appBar: AppBar(
+        title: Text(widget.title),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 16),
+            child: IconButton(
+              icon: Icon(
+                Icons.view_headline,
+                size: 40,
+              ),
+              onPressed: () {
+                setState(() {});
+              },
+            ),
+          ),
+        ],
+      ),
+//==============================================================================
+// SCAFFOLD BODY
+//==============================================================================
+      body: Column(
+        children: [
+          Container(
+              alignment: Alignment.centerLeft,
+              color: Colors.black54,
+              height: 40,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      'Select Company',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ],
+              )),
+          Container(
+              alignment: Alignment.centerLeft,
+              color: Colors.white,
+              height: 40,
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text('Dashboard',
+                        style: TextStyle(color: Colors.black)),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Let's get a quick overview",
+                      style: TextStyle(color: Colors.black38),
+                    ),
+                  )
+                ],
+              )),
+          Expanded(
+            child: Container(
+              color: Colors.grey[200],
+              child: ListView(
+                children: [
+                  WidgetCard(
+                    icon: Icon(
+                      Icons.account_circle,
+                      size: 40,
+                      color: Colors.white,
+                    ),
+                    color: Colors.blue,
+                    title: 'Dashboard',
+                    subtitle: '35',
+                    key: null,
+                  ),
+                  WidgetCard(
+                    icon: Icon(
+                      Icons.input,
+                      size: 35,
+                      color: Colors.white,
+                    ),
+                    color: Colors.red,
+                    title: 'Fiscal Year',
+                    subtitle: '01 Apr 2014 - 31 Mar 2022',
+                    key: null,
+                  ),
+                  WidgetCard(
+                    icon: Icon(
+                      Icons.money,
+                      size: 35,
+                      color: Colors.white,
+                    ),
+                    color: Colors.green,
+                    title: 'Last Payment',
+                    subtitle: '14-04-2021',
+                    key: null,
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
 
-  // void _incrementCounter() {
-  //   setState(() {
-  //     // This call to setState tells the Flutter framework that something has
-  //     // changed in this State, which causes it to rerun the build method below
-  //     // so that the display can reflect the updated values. If we changed
-  //     // _counter without calling setState(), then the build method would not be
-  //     // called again, and so nothing would appear to happen.
-  //     _counter++;
-  //   });
-  // }
+//==============================================================================
+// CARD WIDGET
+//==============================================================================
+class WidgetCard extends StatelessWidget {
+  final Icon icon;
+  final Color color;
+  final String title;
+  final String subtitle;
+  const WidgetCard(
+      {required Key? key,
+      required this.icon,
+      required this.color,
+      required this.title,
+      required this.subtitle})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: GridView(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 1.0,
-            crossAxisSpacing: 10.0,
-            mainAxisSpacing: 10.0,
+    return Padding(
+      padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 8, bottom: 0),
+      child: Card(
+        color: color,
+        child: ListTile(
+          leading: icon,
+          title: Padding(
+            padding: const EdgeInsets.only(bottom: 4),
+            child: Text(title, style: TextStyle(color: Colors.white)),
           ),
-          children: <Widget>[
-            Card(
-              child: Text('test'),
-            ),
-            Card(
-              child: Text('test'),
-            ),
-            Card(
-              child: Text('test'),
-            ),
-            Card(
-              child: Text('test'),
-            ),
-            // Text(
-            //   'You have pushed the button this many times:',
-            // ),
-            // Text(
-            //   '$_counter',
-            //   style: Theme.of(context).textTheme.headline4,
-            // ),
-          ],
+          subtitle: Text(
+            subtitle,
+            style: TextStyle(color: Colors.white, fontSize: 12),
+          ),
+          // trailing: Icon(Icons.arrow_forward_ios),
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _incrementCounter,
-      //   tooltip: 'Increment',
-      //   child: Icon(Icons.add),
-      // ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
