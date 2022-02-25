@@ -5,6 +5,7 @@ void main() {
 }
 
 // https://gist.github.com/felagund18/4ea58e1b4d6646797e866d1c583ca1b0 (CALL API)
+// DEPLOY FLUTTER INTO APACHE WEB SERVER
 
 //==============================================================================
 // MAIN CLASS
@@ -15,11 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'WISS Flutter 2022',
+      title: 'WISS Flutter 2022 Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Wiss Flutter 2022'),
+      home: MyHomePage(title: 'Wiss Flutter 2022 Demo'),
     );
   }
 }
