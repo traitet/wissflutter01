@@ -177,7 +177,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       context,
                       Icon(Icons.input, size: 40, color: Colors.white),
                       Colors.red,
-                      'Call API (Dample)',
+                      'Call API (Sample)',
                       'https://jsonplaceholder.typicode.com/albums/1',
                       MaterialPageRoute(
                           builder: (context) => CallApiAlbumPage())),
