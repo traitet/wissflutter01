@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './pages/CallApiAlbumPage.dart';
 import 'pages/ReportTemplatePage.dart';
 
 void main() {
@@ -169,21 +170,17 @@ class _MyHomePageState extends State<MyHomePage> {
                       '35',
                       MaterialPageRoute(
                           builder: (context) => ReportTemplatePage())),
-
 //==============================================================================
 // CARD#2
 //==============================================================================
-                  WidgetCard(
-                    icon: Icon(
-                      Icons.input,
-                      size: 35,
-                      color: Colors.white,
-                    ),
-                    color: Colors.red,
-                    title: 'Fiscal Year',
-                    subtitle: '01 Apr 2014 - 31 Mar 2022',
-                    key: null,
-                  ),
+                  buildCard(
+                      context,
+                      Icon(Icons.input, size: 40, color: Colors.white),
+                      Colors.red,
+                      'Call API (Dample)',
+                      'https://jsonplaceholder.typicode.com/albums/1',
+                      MaterialPageRoute(
+                          builder: (context) => CallApiAlbumPage())),
 //==============================================================================
 // CARD#3
 //==============================================================================
