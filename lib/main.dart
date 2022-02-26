@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wissflutter01/ReportTemplatePage.dart';
+import 'pages/ReportTemplatePage.dart';
 
 void main() {
   runApp(MyApp());
