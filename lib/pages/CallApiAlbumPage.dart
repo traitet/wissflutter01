@@ -52,19 +52,41 @@ class _CallApiAlbumPageState extends State<CallApiAlbumPage> {
 // BUILD WIDGET
 //==============================================================================
   Widget build(BuildContext context) {
-    return Container(
-      child: FutureBuilder<Album>(
-        future: futureAlbum,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return Text(snapshot.data!.title);
-          } else if (snapshot.hasError) {
-            return Text('${snapshot.error}');
-          }
-          // By default, show a loading spinner.
-          return const CircularProgressIndicator();
-        },
-      ),
-    );
+    return Scaffold(
+        appBar: AppBar(title: Text('Call API Album')),
+        body: Center(
+          child: FutureBuilder<Album>(
+            future: futureAlbum,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Container(
+                  height: 80,
+                  width: double.infinity,
+                  child: Card(
+                    color: Colors.blue,
+                    child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          // Text('ID: ' + snapshot.data!.id.toString(),
+                          //     style: TextStyle(fontSize: 20, color: Colors.white)),
+                          Text('User ID:' + snapshot.data!.userId.toString(),
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white)),
+                          Text('Title: ' + snapshot.data!.title,
+                              style:
+                                  TextStyle(fontSize: 20, color: Colors.white)),
+                        ]),
+                  ),
+                );
+
+                // Text(snapshot.data!.title);
+              } else if (snapshot.hasError) {
+                return Text('${snapshot.error}');
+              }
+              // By default, show a loading spinner.
+              return const CircularProgressIndicator();
+            },
+          ),
+        ));
   }
 }
