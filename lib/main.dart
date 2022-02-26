@@ -162,52 +162,89 @@ class _MyHomePageState extends State<MyHomePage> {
 //==============================================================================
 // CARD#1
 //==============================================================================
-                  buildCard(
-                      context,
-                      Icon(Icons.account_circle, size: 40, color: Colors.white),
-                      Colors.blue,
-                      'Dashboard',
-                      '35',
-                      MaterialPageRoute(
-                          builder: (context) => ReportTemplatePage())),
+                  WidgetCard(
+                    icon: Icon(
+                      Icons.account_circle,
+                      size: 40,
+                      color: Colors.white,
+                    ),
+                    color: Colors.blue,
+                    title: 'Dashboard',
+                    subTitle: 'Aisin Asia Pacific',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ReportTemplatePage(),
+                        ),
+                      );
+                    },
+                  ),
+
 //==============================================================================
 // CARD#2
 //==============================================================================
-                  buildCard(
-                      context,
-                      Icon(Icons.input, size: 40, color: Colors.white),
-                      Colors.red,
-                      'Call API (Sample)',
-                      'https://jsonplaceholder.typicode.com/albums/1',
-                      MaterialPageRoute(
-                          builder: (context) => CallApiAlbumPage())),
+                  WidgetCard(
+                    icon: Icon(
+                      Icons.input,
+                      size: 40,
+                      color: Colors.white,
+                    ),
+                    color: Colors.red.shade400,
+                    title: 'Call API (Sample)',
+                    subTitle: 'https://jsonplaceholder.typicode.com/albums/1',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CallApiAlbumPage(),
+                        ),
+                      );
+                    },
+                  ),
 //==============================================================================
 // CARD#3
 //==============================================================================
                   WidgetCard(
                     icon: Icon(
                       Icons.money,
-                      size: 35,
+                      size: 40,
                       color: Colors.white,
                     ),
-                    color: Colors.green,
-                    title: 'Last Payment',
-                    subtitle: '14-04-2021',
-                    key: null,
+                    color: Colors.green.shade700,
+                    title: 'Interface SAP PO ',
+                    subTitle:
+                        'http://10.100.1.94:8080/wissdemo01/public/api/interface_sap_po',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CallApiAlbumPage(),
+                        ),
+                      );
+                    },
                   ),
 //==============================================================================
 // CARD#4
 //==============================================================================
                   WidgetCard(
                     icon: Icon(
-                      Icons.wallet_giftcard,
-                      size: 35,
+                      Icons.wallet_giftcard_outlined,
+                      size: 40,
                       color: Colors.white,
                     ),
-                    color: Colors.black54,
-                    title: 'PO-Invoice Status',
-                    subtitle: 'Vendor Siam Shimotogo',
-                    key: null,
+                    color: Colors.yellow.shade800,
+                    title: 'Interface SAP RC ',
+                    subTitle:
+                        'http://10.100.1.94:8080/wissdemo01/public/api/interface_sap_rec',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CallApiAlbumPage(),
+                        ),
+                      );
+                    },
                   ),
 //==============================================================================
 // CARD#5
@@ -215,13 +252,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   WidgetCard(
                     icon: Icon(
                       Icons.wallet_membership_outlined,
-                      size: 35,
+                      size: 40,
                       color: Colors.white,
                     ),
-                    color: Colors.orange,
-                    title: 'PO-REC Status',
-                    subtitle: 'Last updated 3 Feb 2022',
-                    key: null,
+                    color: Colors.orange.shade800,
+                    title: 'Interface SAP Receipt',
+                    subTitle:
+                        'http://10.100.1.94:8080/wissdemo01/public/api/interface_sap_rec',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CallApiAlbumPage(),
+                        ),
+                      );
+                    },
                   ),
 //==============================================================================
 // CARD#6
@@ -229,13 +274,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   WidgetCard(
                     icon: Icon(
                       Icons.wallet_travel,
-                      size: 35,
+                      size: 40,
                       color: Colors.white,
                     ),
-                    color: Colors.pink,
-                    title: 'PO-PR Status',
-                    subtitle: 'PO050001, PR040002',
-                    key: null,
+                    color: Colors.blue.shade800,
+                    title: 'Interface SAP Invoice ',
+                    subTitle:
+                        'http://10.100.1.94:8080/wissdemo01/public/api/interface_sap_inv',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CallApiAlbumPage(),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
@@ -250,77 +303,54 @@ class _MyHomePageState extends State<MyHomePage> {
 //=============================================================
 // BUILD CARD
 //=============================================================
-InkWell buildCard(BuildContext context, Icon icon, Color color, String title,
-    String subTitle, MaterialPageRoute route) {
-//=============================================================
-// RETURN INKWELL ( CHANGE TO BUTTON -> CAN ONTAP)
-//=============================================================
-  return InkWell(
-//=============================================================
-// ONTAB EVENT
-//=============================================================
-      onTap: () {
-        Navigator.push(context, route);
-      },
-//=============================================================
-// BUILD CARD
-//=============================================================
-      child: Padding(
-        padding:
-            const EdgeInsets.only(left: 8.0, right: 8.0, top: 8, bottom: 0),
-        child: Card(
-          color: color,
-          child: ListTile(
-            leading: icon,
-            title: Padding(
-              padding: const EdgeInsets.only(bottom: 4),
-              child: Text(title, style: TextStyle(color: Colors.white)),
-            ),
-            subtitle: Text(
-              subTitle,
-              style: TextStyle(color: Colors.white, fontSize: 12),
-            ),
-            // trailing: Icon(Icons.arrow_forward_ios),
-          ),
-        ),
-      ));
-}
-
-//==============================================================================
-// CARD WIDGET
-//==============================================================================
 class WidgetCard extends StatelessWidget {
+//=============================================================
+// DECLARE VARIABLE
+//=============================================================
   final Icon icon;
   final Color color;
   final String title;
-  final String subtitle;
-  const WidgetCard(
-      {required Key? key,
-      required this.icon,
-      required this.color,
-      required this.title,
-      required this.subtitle})
-      : super(key: key);
+  final String subTitle;
+  final VoidCallback onTap;
+  // final Key key;
+
+  WidgetCard({
+    required this.icon,
+    required this.color,
+    required this.title,
+    required this.subTitle,
+    required this.onTap,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 8.0, right: 8.0, top: 8, bottom: 0),
-      child: Card(
-        color: color,
-        child: ListTile(
-          leading: icon,
-          title: Padding(
-            padding: const EdgeInsets.only(bottom: 4),
-            child: Text(title, style: TextStyle(color: Colors.white)),
+    return InkWell(
+//=============================================================
+// ONTAB EVENT
+//=============================================================
+        onTap: onTap,
+//=============================================================
+// BUILD CARD
+//=============================================================
+        child: Padding(
+          padding:
+              const EdgeInsets.only(left: 8.0, right: 8.0, top: 8, bottom: 0),
+          child: Card(
+            color: color,
+            child: ListTile(
+              leading: icon,
+              title: Padding(
+                padding: const EdgeInsets.only(bottom: 4),
+                child: Text(title, style: TextStyle(color: Colors.white)),
+              ),
+              subtitle: Text(
+                subTitle,
+                style: TextStyle(color: Colors.white, fontSize: 12),
+              ),
+              // trailing: Icon(Icons.arrow_forward_ios),
+            ),
           ),
-          subtitle: Text(
-            subtitle,
-            style: TextStyle(color: Colors.white, fontSize: 12),
-          ),
-          // trailing: Icon(Icons.arrow_forward_ios),
-        ),
-      ),
-    );
+        ));
   }
 }
