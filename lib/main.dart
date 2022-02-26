@@ -1,11 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:wissflutter01/ReportTemplatePage.dart';
 
 void main() {
   runApp(MyApp());
 }
-
+//==============================================================================
+//  DEPLOY FLUTTER INTO APACHE WEB SERVER
+//==============================================================================
 // https://gist.github.com/felagund18/4ea58e1b4d6646797e866d1c583ca1b0 (CALL API)
-// DEPLOY FLUTTER INTO APACHE WEB SERVER
+
+//==============================================================================
+// DECLEARE VARIABLE
+//==============================================================================
+enum MenuOptions {
+  app,
+  infra,
+  general,
+  dashboard,
+}
 
 //==============================================================================
 // MAIN CLASS
@@ -20,7 +32,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Wiss Flutter 2022 Demo'),
+      home: MyHomePage(title: 'Wiss Flutter 2022'),
     );
   }
 }
@@ -42,6 +54,7 @@ class MyHomePage extends StatefulWidget {
 //==============================================================================
 // MY HOME PAGE STATE
 //==============================================================================
+
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
@@ -50,23 +63,47 @@ class _MyHomePageState extends State<MyHomePage> {
 //==============================================================================
     return Scaffold(
       // backgroundColor: Colors.lightBlue[40],
-      appBar: AppBar(
-        title: Text(widget.title),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 16),
-            child: IconButton(
-              icon: Icon(
-                Icons.view_headline,
-                size: 40,
-              ),
-              onPressed: () {
-                setState(() {});
-              },
+//==============================================================================
+// APP BAR
+//==============================================================================
+      appBar: AppBar(title: Text(widget.title), actions: [
+//==============================================================================
+// ACTIONS: RIGHT MENU (POPUP MENU BUTTON)
+//==============================================================================
+        PopupMenuButton(
+//==============================================================================
+// ON SELECTED
+//==============================================================================
+          onSelected: (MenuOptions result) {
+            // setState(() {
+            //   _selection = result;
+            // });
+          },
+          icon: Icon(Icons.view_headline),
+//==============================================================================
+// ITEM BUILDER OF MENU
+//==============================================================================
+          itemBuilder: (BuildContext context) => <PopupMenuEntry<MenuOptions>>[
+            const PopupMenuItem<MenuOptions>(
+              value: MenuOptions.app,
+              child: Text('Business App'),
             ),
-          ),
-        ],
-      ),
+            const PopupMenuItem<MenuOptions>(
+              value: MenuOptions.infra,
+              child: Text('Infra'),
+            ),
+            const PopupMenuItem<MenuOptions>(
+              value: MenuOptions.general,
+              child: Text('General'),
+            ),
+            const PopupMenuItem<MenuOptions>(
+              value: MenuOptions.dashboard,
+              child: Text('Dashboard'),
+            ),
+          ],
+        )
+      ]),
+
 //==============================================================================
 // SCAFFOLD BODY
 //==============================================================================
@@ -124,17 +161,15 @@ class _MyHomePageState extends State<MyHomePage> {
 //==============================================================================
 // CARD#1
 //==============================================================================
-                  WidgetCard(
-                    icon: Icon(
-                      Icons.account_circle,
-                      size: 40,
-                      color: Colors.white,
-                    ),
-                    color: Colors.blue,
-                    title: 'Dashboard',
-                    subtitle: '35',
-                    key: null,
-                  ),
+                  buildCard(
+                      context,
+                      Icon(Icons.account_circle, size: 40, color: Colors.white),
+                      Colors.blue,
+                      'Dashboard',
+                      '35',
+                      MaterialPageRoute(
+                          builder: (context) => ReportTemplatePage())),
+
 //==============================================================================
 // CARD#2
 //==============================================================================
@@ -213,6 +248,45 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+}
+
+//=============================================================
+// BUILD CARD
+//=============================================================
+InkWell buildCard(BuildContext context, Icon icon, Color color, String title,
+    String subTitle, MaterialPageRoute route) {
+//=============================================================
+// RETURN INKWELL ( CHANGE TO BUTTON -> CAN ONTAP)
+//=============================================================
+  return InkWell(
+//=============================================================
+// ONTAB EVENT
+//=============================================================
+      onTap: () {
+        Navigator.push(context, route);
+      },
+//=============================================================
+// BUILD CARD
+//=============================================================
+      child: Padding(
+        padding:
+            const EdgeInsets.only(left: 8.0, right: 8.0, top: 8, bottom: 0),
+        child: Card(
+          color: color,
+          child: ListTile(
+            leading: icon,
+            title: Padding(
+              padding: const EdgeInsets.only(bottom: 4),
+              child: Text(title, style: TextStyle(color: Colors.white)),
+            ),
+            subtitle: Text(
+              subTitle,
+              style: TextStyle(color: Colors.white, fontSize: 12),
+            ),
+            // trailing: Icon(Icons.arrow_forward_ios),
+          ),
+        ),
+      ));
 }
 
 //==============================================================================
