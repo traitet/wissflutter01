@@ -1,16 +1,16 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import '../models/AlbumModel.dart';
+import '../models/ApiAlbumModel.dart';
 import 'package:http/http.dart' as http;
 
 //==============================================================================
 // MAIN CLASS
 //==============================================================================
-class CallApiAlbumPage extends StatefulWidget {
-  const CallApiAlbumPage({Key? key}) : super(key: key);
+class SampleApiAlbumPage extends StatefulWidget {
+  const SampleApiAlbumPage({Key? key}) : super(key: key);
 
   @override
-  _CallApiAlbumPageState createState() => _CallApiAlbumPageState();
+  _SampleApiAlbumPageState createState() => _SampleApiAlbumPageState();
 }
 
 //==============================================================================
@@ -34,7 +34,7 @@ Future<Album> fetchAlbum() async {
 //==============================================================================
 // STATE CLASS
 //==============================================================================
-class _CallApiAlbumPageState extends State<CallApiAlbumPage> {
+class _SampleApiAlbumPageState extends State<SampleApiAlbumPage> {
 //==============================================================================
 // DECLARE VARIABLE
 //==============================================================================
