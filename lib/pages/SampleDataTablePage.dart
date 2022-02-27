@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 //==============================================================================
 // MAIN CLASS
 //==============================================================================
-class ReportTemplatePage extends StatefulWidget {
+class SampleDataTablePage extends StatefulWidget {
   @override
-  _ReportTemplatePageState createState() => _ReportTemplatePageState();
+  _SampleDataTablePageState createState() => _SampleDataTablePageState();
 }
 
 //==============================================================================
 // STATE CLASS
 //==============================================================================
-class _ReportTemplatePageState extends State<ReportTemplatePage> {
+class _SampleDataTablePageState extends State<SampleDataTablePage> {
   @override
   Widget build(BuildContext context) {
 //==============================================================================

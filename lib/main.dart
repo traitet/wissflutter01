@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:wissflutter01/pages/InterfaceSapPoPage.dart';
 import 'pages/InterfaceSapPoOneRecordPage.dart';
-import './pages/CallApiAlbumPage.dart';
-import './pages/ReportTemplatePage.dart';
+import 'pages/SampleApiAlbumPage.dart';
+import 'pages/SampleDataTablePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -177,7 +177,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => ReportTemplatePage(),
+                          builder: (context) => SampleDataTablePage(),
                         ),
                       );
                     },
@@ -199,7 +199,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => CallApiAlbumPage(),
+                          builder: (context) => SampleApiAlbumPage(),
                         ),
                       );
                     },
@@ -265,7 +265,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => CallApiAlbumPage(),
+                          builder: (context) => SampleApiAlbumPage(),
                         ),
                       );
                     },
@@ -287,7 +287,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => CallApiAlbumPage(),
+                          builder: (context) => SampleApiAlbumPage(),
                         ),
                       );
                     },
@@ -309,7 +309,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => CallApiAlbumPage(),
+                          builder: (context) => SampleApiAlbumPage(),
                         ),
                       );
                     },
