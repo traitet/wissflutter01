@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:wissflutter01/pages/InterfaceSapPoPage.dart';
+import 'pages/InterfaceSapPoOneRecordPage.dart';
 import './pages/CallApiAlbumPage.dart';
-import 'pages/ReportTemplatePage.dart';
+import './pages/ReportTemplatePage.dart';
 
 void main() {
   runApp(MyApp());
@@ -169,7 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.white,
                     ),
                     color: Colors.blue,
-                    title: 'Dashboard',
+                    title: 'Dashboard (Data Table)',
                     subTitle: 'Aisin Asia Pacific',
                     onTap: () {
                       Navigator.push(
@@ -191,7 +193,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.white,
                     ),
                     color: Colors.red.shade400,
-                    title: 'Call API (Sample)',
+                    title: 'Call API Album (Sample)',
                     subTitle: 'https://jsonplaceholder.typicode.com/albums/1',
                     onTap: () {
                       Navigator.push(
@@ -212,14 +214,36 @@ class _MyHomePageState extends State<MyHomePage> {
                       color: Colors.white,
                     ),
                     color: Colors.green.shade700,
-                    title: 'Interface SAP PO ',
+                    title: 'Interface SAP PO - One Record',
                     subTitle:
                         'http://10.100.1.94:8080/wissdemo01/public/api/interface_sap_po',
                     onTap: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => CallApiAlbumPage(),
+                          builder: (context) => InterfaceSapPoOneRecordPage(),
+                        ),
+                      );
+                    },
+                  ),
+//==============================================================================
+// CARD#4
+//==============================================================================
+                  WidgetCard(
+                    icon: Icon(
+                      Icons.money,
+                      size: 40,
+                      color: Colors.white,
+                    ),
+                    color: Colors.green.shade900,
+                    title: 'Interface SAP PO - All Record',
+                    subTitle:
+                        'http://10.100.1.94:8080/wissdemo01/public/api/interface_sap_po',
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => InterfaceSapPoPage(),
                         ),
                       );
                     },
